@@ -4,17 +4,24 @@
 #
 Name     : R-rematch
 Version  : 1.0.1
-Release  : 13
+Release  : 14
 URL      : https://cran.r-project.org/src/contrib/rematch_1.0.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rematch_1.0.1.tar.gz
 Summary  : Match Regular Expressions with a Nicer 'API'
 Group    : Development/Tools
 License  : MIT
-BuildRequires : clr-R-helpers
+Requires: R-assertthat
+BuildRequires : R-assertthat
+BuildRequires : buildreq-R
 
 %description
-captured groups from the match of a regular expression to a character
-    vector.
+# rematch
+> Match Regular Expressions with a Nicer 'API'
+[![Linux Build Status](https://travis-ci.org/MangoTheCat/rematch.svg?branch=master)](https://travis-ci.org/MangoTheCat/rematch)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/github/MangoTheCat/rematch?svg=true)](https://ci.appveyor.com/project/gaborcsardi/rematch)
+[![](http://www.r-pkg.org/badges/version/rematch)](http://www.r-pkg.org/pkg/rematch)
+[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/rematch)](http://www.r-pkg.org/pkg/rematch)
+[![Coverage Status](https://img.shields.io/codecov/c/github/MangoTheCat/rematch/master.svg)](https://codecov.io/github/MangoTheCat/rematch?branch=master)
 
 %prep
 %setup -q -c -n rematch
@@ -24,11 +31,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1521249567
+export SOURCE_DATE_EPOCH=1552785288
 
 %install
+export SOURCE_DATE_EPOCH=1552785288
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1521249567
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -63,8 +70,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library rematch|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  rematch || :
 
 
 %files
@@ -92,3 +98,5 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/rematch/help/rematch.rdx
 /usr/lib64/R/library/rematch/html/00Index.html
 /usr/lib64/R/library/rematch/html/R.css
+/usr/lib64/R/library/rematch/tests/testthat.R
+/usr/lib64/R/library/rematch/tests/testthat/test.R
