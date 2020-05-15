@@ -4,42 +4,36 @@
 #
 Name     : R-rematch
 Version  : 1.0.1
-Release  : 24
+Release  : 25
 URL      : https://cran.r-project.org/src/contrib/rematch_1.0.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rematch_1.0.1.tar.gz
 Summary  : Match Regular Expressions with a Nicer 'API'
 Group    : Development/Tools
 License  : MIT
-BuildRequires : R-assertthat
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
-# rematch
-> Match Regular Expressions with a Nicer 'API'
-[![Linux Build Status](https://travis-ci.org/MangoTheCat/rematch.svg?branch=master)](https://travis-ci.org/MangoTheCat/rematch)
-[![Windows Build status](https://ci.appveyor.com/api/projects/status/github/MangoTheCat/rematch?svg=true)](https://ci.appveyor.com/project/gaborcsardi/rematch)
-[![](http://www.r-pkg.org/badges/version/rematch)](http://www.r-pkg.org/pkg/rematch)
-[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/rematch)](http://www.r-pkg.org/pkg/rematch)
-[![Coverage Status](https://img.shields.io/codecov/c/github/MangoTheCat/rematch/master.svg)](https://codecov.io/github/MangoTheCat/rematch?branch=master)
+captured groups from the match of a regular expression to a character
+    vector.
 
 %prep
 %setup -q -c -n rematch
+cd %{_builddir}/rematch
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571887801
+export SOURCE_DATE_EPOCH=1589510252
 
 %install
-export SOURCE_DATE_EPOCH=1571887801
+export SOURCE_DATE_EPOCH=1589510252
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
