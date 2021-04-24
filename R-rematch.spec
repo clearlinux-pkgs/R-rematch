@@ -4,7 +4,7 @@
 #
 Name     : R-rematch
 Version  : 1.0.1
-Release  : 28
+Release  : 29
 URL      : https://cran.r-project.org/src/contrib/rematch_1.0.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rematch_1.0.1.tar.gz
 Summary  : Match Regular Expressions with a Nicer 'API'
